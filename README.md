@@ -51,9 +51,9 @@ uses: zhhaogen/read-properties-action@v1.0
 id: readps
 with:
     file: resources/application.properties
-    prefix: current
+    prefix: current_
 - name: 打印Properties变量
-run: echo ${{ steps.readps.outputs.current.server.port }}
+run: echo ${{ steps.readps.outputs.current_server.port }}
 
 ```
 期望输出结果
@@ -77,10 +77,10 @@ with:
     resources/application.properties
     resources/application-test.properties
     prefix: |-
-    current
-    test
+    current_
+    test_
 - name: 打印Properties变量
-run: echo ${{ steps.readps.outputs.current.server.port }},${{ steps.readps.outputs.test.server.port }}
+run: echo ${{ steps.readps.outputs.current_server.port }},${{ steps.readps.outputs.test_server.port }}
 ```
 期望输出结果
 ```
@@ -91,13 +91,13 @@ run: echo ${{ steps.readps.outputs.current.server.port }},${{ steps.readps.outpu
 `configJson`实际值为
 ```
 [
-  {'file':'resources/application.properties','prefix':'current'},
-  {'file':'resources/application-test.properties','prefix':'test'}
+  {'file':'resources/application.properties','prefix':'current_'},
+  {'file':'resources/application-test.properties','prefix':'test_'}
 ]
 ```
 转为json字符串
 ```
-[{"file":"resources/application.properties","prefix":"current"},{"file":"resources/application-test.properties","prefix":"test"}]
+[{"file":"resources/application.properties","prefix":"current_"},{"file":"resources/application-test.properties","prefix":"test_"}]
 ```
 
 `test.yml`文件
@@ -106,9 +106,9 @@ run: echo ${{ steps.readps.outputs.current.server.port }},${{ steps.readps.outpu
 uses: zhhaogen/read-properties-action@v1.0
 id: readps
 with:
-    configJson: '[{"file":"resources/application.properties","prefix":"current"},{"file":"resources/application-test.properties","prefix":"test"}]'
+    configJson: '[{"file":"resources/application.properties","prefix":"current_"},{"file":"resources/application-test.properties","prefix":"test_"}]'
 - name: 打印Properties变量
-run: echo ${{ steps.readps.outputs.current.server.port }},${{ steps.readps.outputs.test.server.port }}
+run: echo ${{ steps.readps.outputs.current_server.port }},${{ steps.readps.outputs.test_server.port }}
 ```
 期望输出结果
 ```
