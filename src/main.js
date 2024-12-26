@@ -53,7 +53,7 @@ try {
             continue;
         }
         for (let keyValue of ps.collection) {
-            console.long(prefix + keyValue.key, keyValue.value);
+            console.log(prefix + keyValue.key, keyValue.value);
             core.setOutput(prefix + keyValue.key, keyValue.value);
             count++;
         }
