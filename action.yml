@@ -1,4 +1,4 @@
-name: read-properties-action
+name: zhhaogen@read-properties-action
 description: 读取properties文件并输出为变量
 inputs:
   file:
