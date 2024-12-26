@@ -3,11 +3,16 @@ description: 读取properties文件并输出为变量
 inputs:
   file:
     description: properties文件位置
-    required: true
+    required: false
+    default: ""
   prefix:
     description: 输出变量的前缀
     required: false
     default: ""
+  configJson:
+    description: 配置json
+    required: false
+    default: ""
 runs:
   using: node20
-  main: src/main.js
+  main: bin/main.js
