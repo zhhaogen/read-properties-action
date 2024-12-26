@@ -35,7 +35,7 @@ jobs:
         with:
           file: resources/application.properties
       - name: 打印Properties变量
-        run: echo ${{ steps.readps.output.server.port }}
+        run: echo ${{ steps.readps.outputs.server.port }}
 
 ```
 期望输出结果
@@ -53,7 +53,7 @@ with:
     file: resources/application.properties
     prefix: current
 - name: 打印Properties变量
-run: echo ${{ steps.readps.output.current.server.port }}
+run: echo ${{ steps.readps.outputs.current.server.port }}
 
 ```
 期望输出结果
@@ -80,7 +80,7 @@ with:
     current
     test
 - name: 打印Properties变量
-run: echo ${{ steps.readps.output.current.server.port }},${{ steps.readps.output.test.server.port }}
+run: echo ${{ steps.readps.outputs.current.server.port }},${{ steps.readps.outputs.test.server.port }}
 ```
 期望输出结果
 ```
@@ -97,7 +97,7 @@ run: echo ${{ steps.readps.output.current.server.port }},${{ steps.readps.output
 ```
 转为json字符串
 ```
-[{'file':'resources/application.properties','prefix':'current'},{'file':'resources/application-test.properties','prefix':'test'}]
+[{"file":"resources/application.properties","prefix":"current"},{"file":"resources/application-test.properties","prefix":"test"}]
 ```
 
 `test.yml`文件
@@ -106,9 +106,9 @@ run: echo ${{ steps.readps.output.current.server.port }},${{ steps.readps.output
 uses: zhhaogen/read-properties-action@v1.0
 id: readps
 with:
-    configJson: "[{'file':'resources/application.properties','prefix':'current'},{'file':'resources/application-test.properties','prefix':'test'}]"
+    configJson: '[{"file":"resources/application.properties","prefix":"current"},{"file":"resources/application-test.properties","prefix":"test"}]'
 - name: 打印Properties变量
-run: echo ${{ steps.readps.output.current.server.port }},${{ steps.readps.output.test.server.port }}
+run: echo ${{ steps.readps.outputs.current.server.port }},${{ steps.readps.outputs.test.server.port }}
 ```
 期望输出结果
 ```
