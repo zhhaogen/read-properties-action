@@ -1,0 +1,10 @@
+{
+  "name": "read-properties-action",
+  "description": "读取properties文件并输出为变量",
+  "version": "1.0.0",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "properties-file": "^3.5.11"
+  }
+}
